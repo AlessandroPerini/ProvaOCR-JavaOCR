@@ -64,7 +64,7 @@ public class TrainingImageLoader extends DocumentScannerListenerAdaptor
      * images.
      * @throws IOException
      */
-    public void load(Component component, String imageFilename, CharacterRange charRange, HashMap<Character, ArrayList<TrainingImage>> dest)
+    public void load( String imageFilename, CharacterRange charRange, HashMap<Character, ArrayList<TrainingImage>> dest)
             throws IOException
     {
 
@@ -74,7 +74,7 @@ public class TrainingImageLoader extends DocumentScannerListenerAdaptor
         {
             throw new IOException("Cannot find training image file: " + imageFilename);
         }
-        load(component, image, charRange, dest, imageFilename);
+        load(image, charRange, dest, imageFilename);
     }
 
     public void setDebug(boolean debug)
@@ -83,7 +83,6 @@ public class TrainingImageLoader extends DocumentScannerListenerAdaptor
     }
 
     public void load(
-            Component component,
             Image image,
             CharacterRange charRange,
             HashMap<Character, ArrayList<TrainingImage>> dest,
@@ -91,15 +90,7 @@ public class TrainingImageLoader extends DocumentScannerListenerAdaptor
             throws IOException
     {
 
-        MediaTracker mt = new MediaTracker(component);
-        mt.addImage(image, 0);
-        try
-        {
-            mt.waitForAll();
-        }
-        catch (InterruptedException ex)
-        {
-        }
+        
         PixelImage pixelImage = new PixelImage(image);
         pixelImage.toGrayScale(true);
         pixelImage.filter();

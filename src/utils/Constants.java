@@ -3,7 +3,7 @@
 // All rights reserved.
 // This software is released under the BSD license.
 // Please see the accompanying LICENSE.txt for details.
-package example;
+package utils;
 
 import java.util.logging.Logger;
 

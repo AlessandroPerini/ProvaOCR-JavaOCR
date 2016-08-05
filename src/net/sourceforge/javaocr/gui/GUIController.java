@@ -198,12 +198,10 @@ public class GUIController
     {
         TrainingImageLoader loader = new TrainingImageLoader();
         HashMap<Character, ArrayList<TrainingImage>> trainingImages = new HashMap<Character, ArrayList<TrainingImage>>();
-        Frame frame = new Frame();
 
         for (int i = 0; i < imgs.size(); i++)
         {
             loader.load(
-                    frame,
                     imgs.get(i).getFileLocation(),
                     imgs.get(i).getCharRange(),
                     trainingImages);
